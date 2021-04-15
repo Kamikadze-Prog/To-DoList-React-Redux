@@ -2,10 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function Ap
-p(): JSX.Element {
-  retu
-  n (
+function A pp(): JSX.Element {
+  return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
