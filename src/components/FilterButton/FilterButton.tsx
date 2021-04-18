@@ -8,7 +8,7 @@ type LinkType = {
     filter: string;
     children: string;
 }
-function Link(props: LinkType) {
+function FilterButton(props: LinkType) {
     const dispatch = useDispatch()
      const {active, filter, children} = props;
     return (
@@ -26,4 +26,4 @@ const mapStateToProps = (state: StateType, ownProps: { filter: string }) => ({
     active: ownProps.filter === state.visibilityFilter
 });
 
-export default connect(mapStateToProps)(Link);
+export default connect(mapStateToProps)(FilterButton);

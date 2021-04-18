@@ -6,17 +6,21 @@ export const Filters = {
     SHOW_ACTIVE: 'SHOW_ACTIVE',
 };
 
-export function getVisibleTodos(todos: any, filter: string) {
+interface VisibleTodos {
+    todos: ItemType[];
+    filter: string;
+}
+
+export function getVisibleTodos({todos, filter}: VisibleTodos): ItemType[]{
     switch (filter) {
         case Filters.SHOW_ALL:
             return todos;
         case Filters.SHOW_COMPLETED:
-            console.log(todos)
-            return todos.filter((task: ItemType) => task.completed);
+            return todos.filter((task) => task.completed);
         case Filters.SHOW_ACTIVE:
-            return todos.filter((task: ItemType) => !task.completed);
+            return todos.filter((task) => !task.completed);
         default:
-            throw new Error('Unknown filter: ' + filter);
+            return todos;
     }
 }
 

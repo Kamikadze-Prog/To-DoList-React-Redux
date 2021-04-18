@@ -19,13 +19,13 @@ function ItemsList(props: { items: ItemType[] }) {
 }
 
 export interface StateType {
-    items: ItemType;
+    items: ItemType[];
     visibilityFilter: string
     text?: string
 }
 
 const mapStateToProps = (state: StateType) => ({
-    items: getVisibleTodos(state.items, state.visibilityFilter)
+    items: getVisibleTodos({todos: state.items, filter: state.visibilityFilter})
 });
 
 export default connect(mapStateToProps,)(ItemsList);

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {connect} from "react-redux";
 import ItemsList from "../components/ItemList/ItemList";
-import Link from "../components/Link/Link";
+import FilterButton from "../components/FilterButton/FilterButton";
 import {Filters} from "../reducers/visibility";
 import Search from "../components/Search/Search";
 import TodoInput from '../components/TodoInput/TodoInput';
@@ -12,9 +12,9 @@ function App(): JSX.Element {
         <div className="ToDoContainer">
             <TodoInput/>
             <div className={`FiltersContainer`}>
-                <Link filter={Filters.SHOW_ALL}>Все</Link>
-                <Link filter={Filters.SHOW_ACTIVE}>Активные</Link>
-                <Link filter={Filters.SHOW_COMPLETED}>Сделано</Link>
+                <FilterButton filter={Filters.SHOW_ALL}>Все</FilterButton>
+                <FilterButton filter={Filters.SHOW_ACTIVE}>Активные</FilterButton>
+                <FilterButton filter={Filters.SHOW_COMPLETED}>Сделано</FilterButton>
             </div>
             <Search/>
             <ItemsList/>
