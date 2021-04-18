@@ -1,6 +1,8 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
-import { deleteItem } from '../../actions/actions';
+import { deleteItem } from '../../../actions/actions';
+import './item.scss'
+import cx from "classnames";
 
 interface ItemProps {
     onClick: React.MouseEventHandler<HTMLInputElement> | undefined,
@@ -18,11 +20,21 @@ function Item(props: ItemProps): JSX.Element {
     }
 
     return (
-        <li className={'item'}>
+        <div
+            className={cx('item-wrapper', {
+                "done": completed
+            })}
+        >
+            <div className={`item-text`}>
             <input defaultChecked={completed} type={`checkBox`} onClick={onClick}/>
-            <label>{text}</label>
-            <span onClick={onDelete}> X</span>
-        </li>
+            <label
+                className={cx('btn-ripple', {
+                "done": completed
+            })}
+            >{text}</label>
+            </div>
+            <span className={`item-delete`} onClick={onDelete}>×</span>
+        </div>
     );
 }
 

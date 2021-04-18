@@ -28,6 +28,6 @@ export const searchItem = (text: string): ReturnType => ({
 });
 
 export const setVisibilityFilter = ( filter: string): { filter: string; type: string; } => ({
-    type: 'SET_VISIBILITY_FILTER',
+    type: 'SET_FILTER',
     filter
 });

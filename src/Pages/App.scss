@@ -1,0 +1,31 @@
+.todo-list-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 50px auto 0 auto;
+  padding: 15px;
+   border-radius: 4px;
+  background: #f7fdff;
+  box-shadow: 0 2px 5px #a2a2a2;
+
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .filters-wrapper {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+
+  .items-list-wrapper {
+    margin-top: 12px;
+  }
+}

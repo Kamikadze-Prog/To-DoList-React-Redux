@@ -1,26 +1,38 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
 import {addItems} from "../../actions/actions";
+import './todoInput.scss';
+import '../Ripple/ripple.scss'
 
 function TodoInput(): JSX.Element {
     let newValue: HTMLInputElement | null;
     const dispatch = useDispatch()
 
-    function addTask(e: { preventDefault: () => void; }) {
-        e.preventDefault()
-        if (newValue?.value){
-          const item = {
+    function addTask(e: any) {
+        if (e.key === "Enter" && newValue?.value || e.target.onclick && newValue?.value) {
+            const item = {
                 text: newValue.value
             }
             dispatch(addItems(item))
-            newValue.value= '';
+            newValue.value = '';
         }
     }
+
     return (
-        <>
-            <input id={`inputTask`} type={`text`} ref={ (prevValue) => newValue = prevValue}/>
-            <button value={`submit`} onClick={addTask}>Добавить таску</button>
-        </>
+        <div className={`new-task-wrapper`}>
+            <input
+                id={`inputTask`}
+                type={`text`}
+                placeholder={`Enter task`}
+                onKeyPress={addTask}
+                ref={(prevValue) => newValue = prevValue}/>
+            <button
+                className={`btn-ripple`}
+                value={`submit`}
+                onClick={addTask}
+            >Add
+            </button>
+        </div>
     );
 }
 
