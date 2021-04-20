@@ -8,8 +8,8 @@ function TodoInput(): JSX.Element {
     let newValue: HTMLInputElement | null;
     const dispatch = useDispatch()
 
-    function addTask(e: any) {
-        if (e.key === "Enter" && newValue?.value || e.target.onclick && newValue?.value) {
+    function addTask() {
+        if (newValue?.value) {
             const item = {
                 text: newValue.value
             }
@@ -24,7 +24,9 @@ function TodoInput(): JSX.Element {
                 id={`inputTask`}
                 type={`text`}
                 placeholder={`Enter task`}
-                onKeyPress={addTask}
+                onKeyPress={e => {
+                    (e.key === "Enter") && addTask()
+                }}
                 ref={(prevValue) => newValue = prevValue}/>
             <button
                 className={`btn-ripple`}
